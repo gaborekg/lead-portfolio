@@ -102,3 +102,17 @@ img { max-width: 100%; display: block; }
 .role li:last-child { margin-bottom: 0; }
 .scope-item { margin-bottom: 1.25rem; }
 .scope-item strong { color: var(--text); }
+
+/* ---- Contact & footer ---------------------------------------------- */
+#contact { margin-top: 5rem; }
+footer {
+  max-width: var(--measure);
+  margin: 5rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--accent);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: space-between;
+  font-style: italic;
+}
