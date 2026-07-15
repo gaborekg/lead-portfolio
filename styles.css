@@ -184,8 +184,15 @@ ul.plain li:last-child { margin-bottom: 0; }
   font-weight: var(--fw-semibold);
 }
 .more__toggle::-webkit-details-marker { display: none; }
-.more__chevron { display: inline-block; line-height: 1; }
-.more[open] .more__chevron { transform: rotate(180deg); }
+/* CSS-drawn chevron: geometric centre is fixed, so it centres on the text.
+   Points down (collapsed); rotates to point up when open. */
+.more__chevron {
+  width: 0.45em; height: 0.45em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+.more[open] .more__chevron { transform: rotate(225deg); }
 
 .scope-item { margin: 0 0 1.25rem; }
 /* Bold sub-heading hangs out to the gutter edge (flush with block labels);
