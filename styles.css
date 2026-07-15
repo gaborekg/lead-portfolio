@@ -80,3 +80,14 @@ img { max-width: 100%; display: block; }
   .row { grid-template-columns: 1fr; gap: 0.25rem 0; }
   .row__label { margin-bottom: 0.25rem; }
 }
+
+/* ---- Top navigation ------------------------------------------------- */
+.nav {
+  max-width: var(--measure);
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-style: italic;
+}
+.nav a { color: var(--accent); }
