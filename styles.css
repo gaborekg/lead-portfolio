@@ -51,10 +51,8 @@ body {
   font-weight: var(--body-weight);
   padding: clamp(1.5rem, 5vw, 4rem);
   /* Orphan/widow control (responsive — recomputed at every width):
-     pretty = tidy last lines of body copy; orphans/widows apply to print. */
+     pretty = tidy last lines of body copy so no single word is left alone. */
   text-wrap: pretty;
-  orphans: 3;
-  widows: 3;
 }
 
 /* Balance short/display lines so no single word is left stranded. */
