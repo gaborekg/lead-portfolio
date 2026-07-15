@@ -157,7 +157,7 @@ ul.plain li:last-child { margin-bottom: 0; }
 .scope-item { margin: 0 0 1.25rem; }
 /* Bold sub-heading hangs out to the gutter edge (flush with block labels);
    its description stays in the grey text column. */
-.scope-item strong { display: block; margin: 0 0 0.15rem calc(-1 * var(--gutter)); font-weight: var(--fw-semibold); color: var(--heading); }
+.scope-item strong { display: block; margin: 0 0 0.15rem calc(-1 * var(--gutter)); font-weight: var(--fw-semibold); color: var(--muted); }
 .scope-item br { display: none; }
 
 /* ---- Footer --------------------------------------------------------- */
