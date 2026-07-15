@@ -273,13 +273,16 @@ Label/content rows in the same style:
 ### 6.4 Legal (`legal.html`)
 
 Same styling as the main page, a comfortable single-column reading measure. Contains the
-Impressum, Privacy Policy, and legal notice text provided by Gábor, with two deliberate
+Impressum, Privacy Policy, and legal notice text provided by Gábor, with three deliberate
 adaptations so the document describes the *actual* site:
 
 - **Hosting section:** rewritten from Squarespace to **Netlify** (the intended host).
   The exact provider entity/address is finalized at deploy time. If a different host is
   chosen, this paragraph is updated to match before going live.
 - **Removed:** the Google reCAPTCHA and contact-form paragraphs — the site has neither.
+- **Trimmed:** stray references to features this static site does not have — the
+  "contact form" data-collection example and the "Analysis Tools / surfing behavior"
+  analytics passages.
 
 The **"responsible party" block** is kept as the official legal record, with the email
 updated to the single address used across the whole site:

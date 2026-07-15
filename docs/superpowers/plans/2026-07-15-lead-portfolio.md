@@ -574,7 +574,7 @@ git commit -m "Add Contact section and footer"
 - Consumes: `styles.css` (all styling), `.nav`, `.wrap`.
 - Produces: the `legal.html` page the footer links to.
 
-Content is the Impressum/Privacy Policy Gábor provided, with the two mandated adaptations (spec §6.4): (a) hosting section rewritten from Squarespace to **Netlify**; (b) Google reCAPTCHA and contact-form paragraphs **removed** (the site has neither). Email everywhere is `gaborgaya@gmail.com`.
+Content is the Impressum/Privacy Policy Gábor provided, with these mandated adaptations (spec §6.4): (a) hosting section rewritten from Squarespace to **Netlify**; (b) Google reCAPTCHA and contact-form paragraphs **removed** (the site has neither); (c) stray references to features this static site does not have **trimmed** — the "contact form" data-collection example and the "Analysis Tools / surfing behavior" analytics passages. Email everywhere is `gaborgaya@gmail.com`.
 
 - [ ] **Step 1: Append minimal legal-page CSS**
 
@@ -619,16 +619,13 @@ Content is the Impressum/Privacy Policy Gábor provided, with the two mandated a
     <p><em>Who is responsible for data collection on this website?</em></p>
     <p>Data processing on this website is carried out by the website operator. You can find the operator's contact details in the “Note on the responsible party” section of this Privacy Policy.</p>
     <p><em>How do we collect your data?</em></p>
-    <p>On the one hand, your data is collected when you provide it to us. This could, for instance, be data you enter into a contact form.</p>
-    <p>Other data is collected automatically or after your consent by our IT systems when you visit the website. This primarily includes technical data (e.g., web browser, operating system, or the time the page was accessed). The collection of this data takes place automatically as soon as you enter this website.</p>
+    <p>On the one hand, your data is collected when you provide it to us, for instance when you contact us by email.</p>
+    <p>Other data is collected automatically by our IT systems when you visit the website. This primarily includes technical data (e.g., web browser, operating system, or the time the page was accessed). The collection of this data takes place automatically as soon as you enter this website.</p>
     <p><em>What do we use your data for?</em></p>
-    <p>Part of the data is collected to ensure the website is provided without errors. Other data may be used to analyze your user behavior. If contracts can be concluded or initiated via the website, the transmitted data will also be processed for contract offers, orders, or other inquiries concerning assignments.</p>
+    <p>The data is collected to ensure the website is provided without errors.</p>
     <p><em>What rights do you have regarding your data?</em></p>
     <p>You have the right at any time to obtain, free of charge, information about the origin, recipient, and purpose of your stored personal data. You also have the right to demand the rectification or erasure of this data. If you have given your consent to data processing, you can revoke this consent at any time for the future. Furthermore, you have the right, under certain circumstances, to request the restriction of the processing of your personal data. In addition, you have the right to lodge a complaint with the competent supervisory authority.</p>
     <p>You can contact us at any time regarding this or any other questions about data protection.</p>
-
-    <p><strong>Analysis Tools and Third-Party Tools</strong></p>
-    <p>When you visit this website, your surfing behavior may be statistically evaluated. This is primarily done using what are known as analysis programs. For detailed information on these analysis programs, please refer to the following Privacy Policy.</p>
 
     <h2>2. Hosting</h2>
     <p>We host our website content with the following provider:</p>
