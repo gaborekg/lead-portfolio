@@ -92,7 +92,7 @@ img { max-width: 100%; display: block; }
 /* ---- Portrait ------------------------------------------------------- */
 /* Image already has the orange duotone baked in; we just crop to a circle. */
 .portrait {
-  width: 46px; height: 46px;
+  width: 69px; height: 69px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 2.5rem;
