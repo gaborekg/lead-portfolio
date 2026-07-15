@@ -169,6 +169,27 @@ ul.plain { list-style: none; margin: 0; padding: 0; }
 ul.plain li { margin-bottom: 0.75rem; }
 ul.plain li:last-child { margin-bottom: 0; }
 
+/* Progressive disclosure: Leadership Scope hidden behind a "Read More" toggle */
+.more { margin-bottom: 2rem; }
+.more:last-child { margin-bottom: 0; }
+.more > .block { margin-top: 1.5rem; }   /* gap between toggle and revealed content */
+.more__toggle {
+  display: inline-flex;                  /* also removes the default disclosure marker */
+  align-items: center;
+  gap: 0.4rem;
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  color: var(--accent);
+  font-weight: var(--fw-semibold);
+}
+.more__toggle::-webkit-details-marker { display: none; }
+.more__chevron { display: inline-block; transition: transform 0.2s ease; }
+.more[open] .more__chevron { transform: rotate(180deg); }
+.more__label--less { display: none; }
+.more[open] .more__label--more { display: none; }
+.more[open] .more__label--less { display: inline; }
+
 .scope-item { margin: 0 0 1.25rem; }
 /* Bold sub-heading hangs out to the gutter edge (flush with block labels);
    its description stays in the grey text column. */
