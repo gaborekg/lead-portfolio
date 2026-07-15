@@ -42,3 +42,41 @@ a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 img { max-width: 100%; display: block; }
+
+/* ---- Layout container ---------------------------------------------- */
+.wrap { max-width: var(--measure); margin: 0 auto; }
+
+/* ---- Signature label/content grid ---------------------------------- */
+.row {
+  display: grid;
+  grid-template-columns: var(--label-col) 1fr;
+  gap: 0 1.5rem;
+  margin-bottom: var(--row-gap);
+}
+.row__label {
+  font-style: italic;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.row__body > * { margin: 0 0 1rem; }
+.row__body > *:last-child { margin-bottom: 0; }
+
+/* ---- Portrait ------------------------------------------------------- */
+.portrait {
+  width: 92px; height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2.5rem;
+}
+
+/* ---- Hero sizing ---------------------------------------------------- */
+#about .row:first-of-type .row__body { font-size: 1.25rem; line-height: 1.5; }
+/* The name is the page's <h1>; strip default heading styling so it looks
+   identical to the body copy around it (no size jump, no bold). */
+#about h1 { font: inherit; margin: 0; }
+
+/* ---- Mobile: stack the grid ---------------------------------------- */
+@media (max-width: 640px) {
+  .row { grid-template-columns: 1fr; gap: 0.25rem 0; }
+  .row__label { margin-bottom: 0.25rem; }
+}
