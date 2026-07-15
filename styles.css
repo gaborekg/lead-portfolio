@@ -1,0 +1,44 @@
+/* ---- Fonts ---------------------------------------------------------- */
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/IBMPlexMono-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/IBMPlexMono-Italic.woff2") format("woff2");
+}
+
+/* ---- Tokens --------------------------------------------------------- */
+:root {
+  --bg: #F7F8F9;
+  --text: #5B6174;
+  --accent: #DB5E27;
+
+  --measure: 60rem;          /* max content width */
+  --label-col: 7.5rem;       /* label column width on desktop */
+  --row-gap: 2.75rem;        /* vertical rhythm between rows */
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+}
+
+/* ---- Reset / base --------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 1.0625rem;      /* ~17px */
+  line-height: 1.75;
+  padding: clamp(1.5rem, 5vw, 4rem);
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+img { max-width: 100%; display: block; }
