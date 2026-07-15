@@ -91,3 +91,14 @@ img { max-width: 100%; display: block; }
   font-style: italic;
 }
 .nav a { color: var(--accent); }
+
+/* ---- Experience ----------------------------------------------------- */
+#experience { margin-top: 5rem; }
+.section-title { font-style: italic; color: var(--accent); margin: 0 0 2.5rem; font-weight: 400; }
+.role { margin-bottom: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--accent); }
+.role h3 { color: var(--text); font-weight: 400; font-size: 1.15rem; margin: 0 0 2rem; }
+.role ul { margin: 0; padding-left: 1.25rem; }
+.role li { margin-bottom: 0.75rem; }
+.role li:last-child { margin-bottom: 0; }
+.scope-item { margin-bottom: 1.25rem; }
+.scope-item strong { color: var(--text); }
