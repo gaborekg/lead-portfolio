@@ -50,7 +50,21 @@ body {
   line-height: var(--body-line);
   font-weight: var(--body-weight);
   padding: clamp(1.5rem, 5vw, 4rem);
+  /* Orphan/widow control (responsive — recomputed at every width):
+     pretty = tidy last lines of body copy; orphans/widows apply to print. */
+  text-wrap: pretty;
+  orphans: 3;
+  widows: 3;
 }
+
+/* Balance short/display lines so no single word is left stranded. */
+h1, h2, h3,
+.brand__name, .brand__role,
+.entry__summary, .block__label, .scope-item strong {
+  text-wrap: balance;
+}
+/* Keep the date range on one line (no lone "Present"). */
+.entry__dates { white-space: nowrap; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
