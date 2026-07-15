@@ -319,8 +319,8 @@ the legal responsible-party block. The alternate address from the original legal
 
 ## 10. Open Items (assets Gábor will provide)
 
+- ~~CV PDF (`cv.pdf`)~~ ✅ provided — in project root.
 - Portrait image (for `assets/portrait.jpg`).
 - LinkedIn profile URL.
-- CV PDF (`cv.pdf`).
 - Desktop full-page + mobile screenshots (to fine-tune spacing/breakpoints).
 - Confirmation of the final host (default: Netlify).
