@@ -119,6 +119,7 @@ img { max-width: 100%; display: block; }
 .entry { display: grid; grid-template-columns: var(--entry-label) 1fr; gap: 0 3rem; }
 .entry + .entry { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 4rem; }
 .entry__company { grid-column: 1; margin: 0; font-weight: 700; font-size: 1.0625rem; color: var(--heading); }
+.entry__role { display: block; margin-top: 0.35rem; font-weight: 400; font-size: 0.9rem; color: var(--accent); }
 .entry__content { grid-column: 2; }
 .entry__summary { margin: 0 0 2.5rem; font-weight: 700; font-size: 1.25rem; line-height: 1.5; color: var(--heading); }
 .entry__media { aspect-ratio: 16 / 9; width: 100%; margin: 0 0 2.5rem; background: var(--placeholder); border-radius: 2px; }
