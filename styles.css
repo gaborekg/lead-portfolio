@@ -186,9 +186,6 @@ ul.plain li:last-child { margin-bottom: 0; }
 .more__toggle::-webkit-details-marker { display: none; }
 .more__chevron { display: inline-block; }
 .more[open] .more__chevron { transform: rotate(180deg); }
-.more__label--less { display: none; }
-.more[open] .more__label--more { display: none; }
-.more[open] .more__label--less { display: inline; }
 
 .scope-item { margin: 0 0 1.25rem; }
 /* Bold sub-heading hangs out to the gutter edge (flush with block labels);
