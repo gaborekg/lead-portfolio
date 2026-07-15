@@ -297,6 +297,27 @@ the legal responsible-party block. The alternate address from the original legal
 > **Not legal advice.** This reproduces and lightly adapts text Gábor supplied. Gábor is
 > responsible for the legal accuracy of the final Impressum/Privacy Policy.
 
+## 6b. Layout Revision (2026-07-15) — old-site "case-study card" structure
+
+After the first build, the layout was revised to replicate the structure of Gábor's
+previous website (per screenshots he supplied), keeping our leadership content verbatim.
+The screenshots dictate *structure only*; all copy is the leadership version.
+
+- **Header:** brand block `GÁBOR GAYÀ` / `PRODUCT & STRATEGY LEAD` (accent) on the left;
+  `CV | Contact` on the right with an accent divider. Replaces the earlier text nav.
+- **Hero:** unchanged (the `Hey!/About/Before/Now/Where` label grid).
+- **Experience & Impact:** heading with a thick underline, then each role as a
+  **case-study card**: company name (left column) + **Summary as a bold headline**
+  (right), a **grey image placeholder** (16:9, sized like the originals — real images
+  deferred), then labelled blocks **Company · Key Outcomes · Leadership Scope**
+  (Vermibus adds Speaking; Selected Early Experiences uses Companies + Key Outcomes).
+  Key Outcomes render with orange arrow markers. "Read Case Study" CTAs are omitted
+  for now.
+- **Contact:** folded into the footer — `Get in touch` + email, then a bottom row with
+  `© All rights reserved 2026` and `Download CV · Legal · Linkedin`.
+- **New tokens:** `--heading #2C313C` (dark charcoal for headings/labels), `--rule
+  #D9DCE1` (dividers), `--placeholder #D2D5DB` (grey image blocks).
+
 ## 7. Responsive Behavior
 
 - **Desktop:** two-column label/content grid as shown in the reference.
