@@ -32,6 +32,8 @@
   --label-col: 7.5rem;       /* hero label column width on desktop */
   --entry-label: 16rem;      /* experience company column width */
   --row-gap: 2.75rem;        /* vertical rhythm between rows */
+  --gutter: 1.75rem;         /* hanging indent: grey body text column;
+                                bold labels + arrows sit in this gutter */
 }
 /* Type tokens (font family, sizes, weights, line/letter spacing) live in
    typography.css — edit them there. */
@@ -136,12 +138,14 @@ img { max-width: 100%; display: block; }
 .block { margin-bottom: 2rem; }
 .block:last-child { margin-bottom: 0; }
 .block__label { margin: 0 0 0.5rem; font-weight: var(--block-label-weight); font-size: var(--block-label-size); color: var(--heading); }
+/* Grey body text sits in a consistent column, indented by the gutter. */
+.block__body { padding-left: var(--gutter); }
 .block__body > * { margin: 0 0 1rem; }
 .block__body > *:last-child { margin-bottom: 0; }
 
 /* Key Outcomes: orange arrow markers */
 ul.arrows { list-style: none; margin: 0; padding: 0; }
-ul.arrows li { position: relative; padding-left: 1.75rem; margin-bottom: 0.75rem; }
+ul.arrows li { position: relative; padding-left: var(--gutter); margin-bottom: 0.75rem; }
 ul.arrows li:last-child { margin-bottom: 0; }
 ul.arrows li::before { content: "\2192"; position: absolute; left: 0; font-size: var(--arrow-size); line-height: 1; color: var(--accent); }
 
@@ -151,7 +155,10 @@ ul.plain li { margin-bottom: 0.75rem; }
 ul.plain li:last-child { margin-bottom: 0; }
 
 .scope-item { margin: 0 0 1.25rem; }
-.scope-item strong { font-weight: var(--fw-semibold); color: var(--heading); }
+/* Bold sub-heading hangs out to the gutter edge (flush with block labels);
+   its description stays in the grey text column. */
+.scope-item strong { display: block; margin: 0 0 0.15rem calc(-1 * var(--gutter)); font-weight: var(--fw-semibold); color: var(--heading); }
+.scope-item br { display: none; }
 
 /* ---- Footer --------------------------------------------------------- */
 .site-footer {
