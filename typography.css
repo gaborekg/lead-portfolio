@@ -1,47 +1,91 @@
 /* ============================================================
    TYPOGRAPHY — EDIT THIS FILE
    ------------------------------------------------------------
-   Change a value below, save, and refresh the browser to see it.
-   These control ONLY type (font, sizes, weights, line spacing,
-   letter spacing). They apply everywhere that style is used.
+   Each text style on the site has its own group below. Change a
+   value, save, refresh the browser.
 
-   • Sizes are in rem. 1rem = 16px, so 1.0625rem ≈ 17px.
-     (Change a size once here → it updates every place it's used.)
-   • COLOURS are not here — they live in styles.css under
-     ":root" as --text, --accent, --heading. Edit those there.
+   • Sizes are in rem: 1rem = 16px, 0.875rem = 14px, 1.25rem = 20px,
+     1.5rem = 24px.
+   • Line-height is unitless (a multiplier of the font size):
+     1.4 × 16px = 22.4px, 1.7 × 16px = 27.2px, etc.
+   • COLOURS live in styles.css under ":root"
+     (--text, --accent, --heading, --muted). Edit them there.
    ============================================================ */
 
 :root {
 
-  /* ---- Font family -------------------------------------------------
-     The actual font files (IBM Plex Mono) are loaded in styles.css.
-     This just names which family to use. */
+  /* ---- Font family (files loaded in styles.css) ---- */
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
 
-  /* ---- Font sizes --------------------------------------------------
-     What each one controls is noted on the right. */
-  --fs-base:          1.0625rem;  /* ~17px  body text, block labels, nav, most copy   */
-  --fs-small:         0.9rem;     /* ~14px  brand tagline + role titles (e.g. "UX Lead") */
-  --fs-hero:          1.25rem;    /* ~20px  hero name (h1) + the About paragraphs      */
-  --fs-headline:      1.25rem;    /* ~20px  each role's bold Summary headline          */
-  --fs-section-title: 1.5rem;     /* ~24px  the "Experience & Impact" heading          */
-  --fs-legal-h1:      1.4rem;     /* ~22px  Legal page main heading                    */
-  --fs-legal-h2:      1.1rem;     /* ~18px  Legal page sub-headings                    */
+  /* ---- Weights (full family loaded — every value is a real cut) ----
+     100 thin · 300 light · 400 regular · 500 medium · 600 semibold · 700 bold */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
 
-  /* ---- Font weights ------------------------------------------------
-     The FULL family is self-hosted, so any value from 100 to 700 is a
-     real cut (100 thin, 300 light, 400 regular, 500 medium, 600 semibold,
-     700 bold). Change these numbers freely — e.g. set --fw-bold to 600
-     for a slightly lighter heading weight. */
-  --fw-regular: 400;   /* body copy                                     */
-  --fw-bold:    700;   /* headings, company names, block labels         */
+  /* ---- Body & hero text (Regular 16px / 22.4px) ---- */
+  --body-weight: var(--fw-regular);
+  --body-size:   1rem;      /* 16px */
+  --body-line:   1.4;       /* 22.4px */
 
-  /* ---- Line height (leading) --------------------------------------- */
-  --lh-base:  1.75;    /* body copy                                        */
-  --lh-tight: 1.5;     /* larger text: hero name/About + Summary headlines */
+  /* ---- Hero labels: Hey! / About / Before / Now / Where
+          (Medium Italic 14px / 19.6px, accent colour) ---- */
+  --label-weight: var(--fw-medium);
+  --label-size:   0.875rem; /* 14px */
+  --label-line:   1.4;      /* 19.6px */
 
-  /* ---- Letter spacing ---------------------------------------------- */
-  --ls-brand-name: 0.03em;   /* "GÁBOR GAYÀ"                 */
-  --ls-brand-role: 0.06em;   /* "PRODUCT & STRATEGY LEAD"    */
+  /* ---- Brand name "GÁBOR GAYÀ" (Medium 20px / 20px) ---- */
+  --brand-name-weight: var(--fw-medium);
+  --brand-name-size:   1.25rem; /* 20px */
+  --brand-name-line:   1;       /* 20px */
+  --brand-name-ls:     0;       /* letter-spacing */
+
+  /* ---- Brand tagline "PRODUCT & STRATEGY LEAD"
+          (Regular 16px / 20px, accent, UPPERCASE) ---- */
+  --brand-role-weight: var(--fw-regular);
+  --brand-role-size:   1rem;    /* 16px */
+  --brand-role-line:   1.25;    /* 20px */
+  --brand-role-ls:     0;
+
+  /* ---- Section title "Experience & Impact" (Semi-bold 24px) ---- */
+  --section-weight: var(--fw-semibold);
+  --section-size:   1.5rem;     /* 24px */
+  --section-line:   normal;
+
+  /* ---- Role company name (Semi-bold 16px / 22.4px) ---- */
+  --company-weight: var(--fw-semibold);
+  --company-size:   1rem;       /* 16px */
+  --company-line:   1.4;        /* 22.4px */
+
+  /* ---- Role job title, under the company name
+          (not annotated — assumed Regular 14px, accent) ---- */
+  --role-weight: var(--fw-regular);
+  --role-size:   0.875rem;      /* 14px */
+
+  /* ---- Summary headline (Semi-bold 16px / 27.2px) ---- */
+  --summary-weight: var(--fw-semibold);
+  --summary-size:   1rem;       /* 16px */
+  --summary-line:   1.7;        /* 27.2px */
+
+  /* ---- Block labels: Company / Key Outcomes / Leadership Scope / Speaking
+          (not annotated — assumed Semi-bold 16px, dark) ---- */
+  --block-label-weight: var(--fw-semibold);
+  --block-label-size:   1rem;   /* 16px */
+
+  /* ---- Key Outcomes arrow marker → (Regular 20px, accent) ---- */
+  --arrow-size: 1.25rem;        /* 20px */
+
+  /* ---- Footer: © line + Download CV / Legal / Linkedin
+          (Light Italic 14px / 19.6px, muted grey) ---- */
+  --footer-weight: var(--fw-light);
+  --footer-size:   0.875rem;    /* 14px */
+  --footer-line:   1.4;         /* 19.6px */
+  --footer-ls:     0.4px;       /* tracking on the © line */
+
+  /* ---- Legal page headings (kept from before) ---- */
+  --fs-legal-h1: 1.4rem;        /* ~22px */
+  --fs-legal-h2: 1.1rem;        /* ~18px */
 
 }
