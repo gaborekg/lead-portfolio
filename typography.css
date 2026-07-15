@@ -1,0 +1,47 @@
+/* ============================================================
+   TYPOGRAPHY — EDIT THIS FILE
+   ------------------------------------------------------------
+   Change a value below, save, and refresh the browser to see it.
+   These control ONLY type (font, sizes, weights, line spacing,
+   letter spacing). They apply everywhere that style is used.
+
+   • Sizes are in rem. 1rem = 16px, so 1.0625rem ≈ 17px.
+     (Change a size once here → it updates every place it's used.)
+   • COLOURS are not here — they live in styles.css under
+     ":root" as --text, --accent, --heading. Edit those there.
+   ============================================================ */
+
+:root {
+
+  /* ---- Font family -------------------------------------------------
+     The actual font files (IBM Plex Mono) are loaded in styles.css.
+     This just names which family to use. */
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+
+  /* ---- Font sizes --------------------------------------------------
+     What each one controls is noted on the right. */
+  --fs-base:          1.0625rem;  /* ~17px  body text, block labels, nav, most copy   */
+  --fs-small:         0.9rem;     /* ~14px  brand tagline + role titles (e.g. "UX Lead") */
+  --fs-hero:          1.25rem;    /* ~20px  hero name (h1) + the About paragraphs      */
+  --fs-headline:      1.25rem;    /* ~20px  each role's bold Summary headline          */
+  --fs-section-title: 1.5rem;     /* ~24px  the "Experience & Impact" heading          */
+  --fs-legal-h1:      1.4rem;     /* ~22px  Legal page main heading                    */
+  --fs-legal-h2:      1.1rem;     /* ~18px  Legal page sub-headings                    */
+
+  /* ---- Font weights ------------------------------------------------
+     The FULL family is self-hosted, so any value from 100 to 700 is a
+     real cut (100 thin, 300 light, 400 regular, 500 medium, 600 semibold,
+     700 bold). Change these numbers freely — e.g. set --fw-bold to 600
+     for a slightly lighter heading weight. */
+  --fw-regular: 400;   /* body copy                                     */
+  --fw-bold:    700;   /* headings, company names, block labels         */
+
+  /* ---- Line height (leading) --------------------------------------- */
+  --lh-base:  1.75;    /* body copy                                        */
+  --lh-tight: 1.5;     /* larger text: hero name/About + Summary headlines */
+
+  /* ---- Letter spacing ---------------------------------------------- */
+  --ls-brand-name: 0.03em;   /* "GÁBOR GAYÀ"                 */
+  --ls-brand-role: 0.06em;   /* "PRODUCT & STRATEGY LEAD"    */
+
+}
