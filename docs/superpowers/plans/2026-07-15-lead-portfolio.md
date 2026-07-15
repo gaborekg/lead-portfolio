@@ -174,7 +174,7 @@ git commit -m "Add font, color tokens, and base styles"
 ```bash
 cd /Users/gabor/lead-portfolio
 # 240x240 solid-tint placeholder so layout can be verified before the real photo arrives
-printf '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><rect width="240" height="240" fill="%23DB5E27" opacity="0.5"/></svg>' > assets/portrait.svg
+printf '%s' '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><rect width="240" height="240" fill="#DB5E27" opacity="0.5"/></svg>' > assets/portrait.svg
 ```
 Note: reference `assets/portrait.svg` in HTML for now; swap to `assets/portrait.jpg` when Gábor provides the real duotone photo (update the `src` and `alt`).
 
@@ -753,7 +753,7 @@ git commit -m "Add adapted legal page (Netlify hosting, no form/reCAPTCHA)"
 
 ```bash
 cd /Users/gabor/lead-portfolio
-printf '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="%23F7F8F9"/><text x="16" y="23" font-family="monospace" font-size="20" fill="%23DB5E27" text-anchor="middle">g</text></svg>' > favicon.svg
+printf '%s' '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="#F7F8F9"/><text x="16" y="23" font-family="monospace" font-size="20" fill="#DB5E27" text-anchor="middle">g</text></svg>' > favicon.svg
 ```
 
 - [ ] **Step 2: Add meta + favicon to both pages**
