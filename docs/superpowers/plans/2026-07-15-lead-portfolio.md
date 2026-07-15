@@ -137,7 +137,7 @@ img { max-width: 100%; display: block; }
 </head>
 <body>
   <p><em style="color:var(--accent)">Hey!</em> The quick brown fox — Gábor Gayà, á í ü é.</p>
-  <p>1234567890 — background #F7F8F9, text #5B6174, accent #DB5E27.</p>
+  <p>1234567890 — €650k+ budget — background #F7F8F9, text #5B6174, accent #DB5E27.</p>
 </body>
 </html>
 ```
@@ -147,7 +147,7 @@ img { max-width: 100%; display: block; }
 Open `index.html` in a browser (e.g. `open index.html` on macOS). Confirm:
 - Text renders in a **monospaced** typeface (all glyphs equal width), not the system default.
 - The word "Hey!" is **burnt orange** and italic; body text is muted slate; page background is near-white.
-- Accented characters (á, í, ü, é) display correctly.
+- Accented characters (á, í, ü, é) and the euro sign (€) display correctly (not tofu boxes).
 
 - [ ] **Step 6: Commit**
 
@@ -209,6 +209,9 @@ Note: reference `assets/portrait.svg` in HTML for now; swap to `assets/portrait.
 
 /* ---- Hero sizing ---------------------------------------------------- */
 #about .row:first-of-type .row__body { font-size: 1.25rem; line-height: 1.5; }
+/* The name is the page's <h1>; strip default heading styling so it looks
+   identical to the body copy around it (no size jump, no bold). */
+#about h1 { font: inherit; margin: 0; }
 
 /* ---- Mobile: stack the grid ---------------------------------------- */
 @media (max-width: 640px) {
@@ -238,7 +241,7 @@ Use the exact copy from spec §6.1. Full markup:
       <div class="row">
         <div class="row__label">Hey!</div>
         <div class="row__body">
-          <p>I'm Gábor Gayà,<br>Product &amp; Strategy Lead.</p>
+          <h1>I'm Gábor Gayà,<br>Product &amp; Strategy Lead.</h1>
         </div>
       </div>
 
@@ -605,41 +608,115 @@ Content is the Impressum/Privacy Policy Gábor provided, with the two mandated a
   <main class="legal">
     <h1>Impressum</h1>
 
-    <h2>Responsible party</h2>
-    <p>Gabor Gaya<br>Berlinickestr. 4<br>12165 Berlin<br>Phone: +49 15251697425<br>Email: <a href="mailto:gaborgaya@gmail.com">gaborgaya@gmail.com</a></p>
-    <p>Information according to § 5 TMG. The responsible party is the natural or legal person who alone or jointly with others determines the purposes and means of processing personal data.</p>
+    <p><strong>Privacy Policy</strong></p>
 
-    <h2>Privacy Policy — At a Glance</h2>
-    <p>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data refers to all data that can be used to personally identify you.</p>
-    <p>This website is a static portfolio. It does not run analytics, does not set non-essential cookies, and has no contact form. Data is only processed to the extent technically necessary to deliver the pages (see Hosting).</p>
+    <h2>1. Data Protection at a Glance</h2>
 
-    <h2>Hosting</h2>
-    <p>We host this website with the following provider: <strong>Netlify</strong>. The provider is Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA (hereinafter “Netlify”).</p>
-    <p>When you visit this website, technical access data (e.g. IP address, browser type, operating system, and time of access) is processed on Netlify’s servers to enable the reliable and secure delivery of the site. Personal data may be transmitted to the USA in this context.</p>
-    <p>The use of Netlify is based on Article 6(1)(f) GDPR. We have a legitimate interest in the most reliable possible display of our website. Data transfer to the USA is based on the EU Commission’s standard contractual clauses. We have concluded a Data Processing Agreement (DPA) with the provider as required by the GDPR.</p>
+    <p><strong>General Information</strong></p>
+    <p>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data refers to all data that can be used to personally identify you. For detailed information on the subject of data protection, please refer to our Privacy Policy listed below this text.</p>
 
-    <h2>General Information and Mandatory Notices</h2>
-    <p>The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this Privacy Policy. We would like to point out that data transmission on the internet (e.g. when communicating by email) can have security vulnerabilities. Complete protection of data from access by third parties is not possible.</p>
-    <p><strong>Storage period.</strong> Unless a more specific storage period is stated in this Privacy Policy, your personal data remains with us until the purpose for the data processing no longer applies. If you assert a legitimate request for erasure or revoke consent, your data is erased unless we have other legally permissible grounds for storing it.</p>
+    <p><strong>Data Collection on This Website</strong></p>
+    <p><em>Who is responsible for data collection on this website?</em></p>
+    <p>Data processing on this website is carried out by the website operator. You can find the operator's contact details in the “Note on the responsible party” section of this Privacy Policy.</p>
+    <p><em>How do we collect your data?</em></p>
+    <p>On the one hand, your data is collected when you provide it to us. This could, for instance, be data you enter into a contact form.</p>
+    <p>Other data is collected automatically or after your consent by our IT systems when you visit the website. This primarily includes technical data (e.g., web browser, operating system, or the time the page was accessed). The collection of this data takes place automatically as soon as you enter this website.</p>
+    <p><em>What do we use your data for?</em></p>
+    <p>Part of the data is collected to ensure the website is provided without errors. Other data may be used to analyze your user behavior. If contracts can be concluded or initiated via the website, the transmitted data will also be processed for contract offers, orders, or other inquiries concerning assignments.</p>
+    <p><em>What rights do you have regarding your data?</em></p>
+    <p>You have the right at any time to obtain, free of charge, information about the origin, recipient, and purpose of your stored personal data. You also have the right to demand the rectification or erasure of this data. If you have given your consent to data processing, you can revoke this consent at any time for the future. Furthermore, you have the right, under certain circumstances, to request the restriction of the processing of your personal data. In addition, you have the right to lodge a complaint with the competent supervisory authority.</p>
+    <p>You can contact us at any time regarding this or any other questions about data protection.</p>
 
-    <h2>Your Rights</h2>
-    <p>You have the right at any time to obtain, free of charge, information about the origin, recipient, and purpose of your stored personal data, and to demand its rectification or erasure. If you have given consent, you can revoke it at any time for the future. You may request restriction of processing, and you have the right to data portability. You also have the right to lodge a complaint with the competent supervisory authority.</p>
-    <p><strong>Right to object (Article 21 GDPR).</strong> Where processing is based on Article 6(1)(e) or (f) GDPR, you have the right to object at any time, for reasons arising from your particular situation, to the processing of your personal data.</p>
+    <p><strong>Analysis Tools and Third-Party Tools</strong></p>
+    <p>When you visit this website, your surfing behavior may be statistically evaluated. This is primarily done using what are known as analysis programs. For detailed information on these analysis programs, please refer to the following Privacy Policy.</p>
 
-    <h2>SSL / TLS Encryption</h2>
-    <p>For security reasons and to protect the transmission of confidential content, this site uses SSL/TLS encryption. You can recognize an encrypted connection by the “https://” prefix and the lock icon in your browser’s address bar.</p>
+    <h2>2. Hosting</h2>
+    <p>We host our website content with the following provider:</p>
+    <p><strong>Netlify</strong></p>
+    <p>The provider is Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA (hereinafter “Netlify”).</p>
+    <p>Netlify is a tool for hosting websites. When you visit our website, technical access data (e.g., IP address, web browser, operating system, or the time the page was accessed) is processed on Netlify's servers to enable the reliable and secure delivery of the site. In this context, personal data may also be transmitted to the USA.</p>
+    <p>The use of Netlify is based on Article 6(1)(f) GDPR. We have a legitimate interest in the most reliable possible display of our website. If appropriate consent was requested, the processing is carried out exclusively based on Article 6(1)(a) GDPR and Section 25(1) TDDDG (Telecommunications Telemedia Data Protection Act), insofar as the consent includes the storage of cookies or access to information in the user's device (e.g., device fingerprinting) within the meaning of the TDDDG. Consent can be revoked at any time.</p>
+    <p>Data transfer to the USA is based on the EU Commission's standard contractual clauses. You can find more information in Netlify's privacy policy: <a href="https://www.netlify.com/privacy/">https://www.netlify.com/privacy/</a>.</p>
+    <p><strong>Data Processing Agreement</strong></p>
+    <p>We have concluded a Data Processing Agreement (DPA) for the use of the above-mentioned service. This is a legally required contract that ensures that this provider processes the personal data of our website visitors only in accordance with our instructions and in compliance with the GDPR.</p>
 
-    <h2>Objection to Promotional Emails</h2>
-    <p>We hereby object to the use of contact data published within the scope of the imprint obligation for sending unsolicited advertising and informational materials. The operators of these pages expressly reserve the right to take legal action in the event of the unsolicited sending of advertising information (e.g. spam emails).</p>
+    <h2>3. General Information and Mandatory Notices</h2>
 
-    <h2>Copyright</h2>
-    <p>All content published on this site is protected by copyright. Use, reproduction, and distribution of the content requires express permission.</p>
+    <p><strong>Data Protection</strong></p>
+    <p>The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this Privacy Policy.</p>
+    <p>When you use this website, various personal data is collected. Personal data is any data by which you can be personally identified. This Privacy Policy explains which data we collect and what we use it for. It also explains how and for what purpose this occurs.</p>
+    <p>We would like to point out that data transmission on the internet (e.g., when communicating by email) can have security vulnerabilities. Complete protection of data from access by third parties is not possible.</p>
 
-    <h2>EU Dispute Resolution</h2>
-    <p>The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a>. You can find our email address in the responsible-party section above.</p>
-    <p>We are not willing or obliged to participate in dispute-resolution proceedings before a consumer arbitration board.</p>
+    <p><strong>Note on the Responsible Party</strong></p>
+    <p>The party responsible for data processing on this website is:</p>
+    <p>Gabor Gaya<br>Berlinickestr 4<br>12165 Berlin<br>Phone: +49 15251697425<br>Email: <a href="mailto:gaborgaya@gmail.com">gaborgaya@gmail.com</a></p>
+    <p>The responsible party is the natural or legal person who alone or jointly with others determines the purposes and means of processing personal data (e.g., names, email addresses, etc.).</p>
 
-    <p style="margin-top:2.5rem">Source basis: e-recht24.de, adapted for this site.</p>
+    <p><strong>Storage Period</strong></p>
+    <p>Unless a more specific storage period is stated within this Privacy Policy, your personal data will remain with us until the purpose for the data processing no longer applies. If you assert a legitimate request for erasure or revoke your consent to data processing, your data will be erased unless we have other legally permissible grounds for storing your personal data (e.g., tax or commercial retention periods); in the latter case, erasure will take place once these reasons no longer apply.</p>
+
+    <p><strong>General Information on the Legal Bases for Data Processing on this Website</strong></p>
+    <p>Insofar as you have given consent to data processing, we process your personal data on the basis of Article 6(1)(a) GDPR and/or Article 9(2)(a) GDPR, provided special categories of data pursuant to Article 9(1) GDPR are processed. In the event of an explicit consent to the transfer of personal data to third countries, data processing is also carried out on the basis of Article 49(1)(a) GDPR. If you have consented to the storage of cookies or access to information in your device (e.g., via device fingerprinting), processing is additionally based on Section 25(1) TDDDG. Consent can be revoked at any time. If your data is required for the performance of a contract or for pre-contractual measures, we process your data on the basis of Article 6(1)(b) GDPR. Furthermore, if your data is necessary for compliance with a legal obligation, we process it on the basis of Article 6(1)(c) GDPR. Data processing may also be based on our legitimate interest under Article 6(1)(f) GDPR. Information on the relevant legal bases in each individual case is provided in the following sections of this Privacy Policy.</p>
+
+    <p><strong>Recipients of Personal Data</strong></p>
+    <p>In the context of our business activities, we collaborate with various external entities. In some cases, this also requires the transfer of personal data to these external entities. We only pass on personal data to external entities if this is necessary for contract fulfillment, if we are legally obligated to do so (e.g., disclosure of data to tax authorities), if we have a legitimate interest under Article 6(1)(f) GDPR in the disclosure, or if another legal basis permits the data transfer. When using processors, we only pass on personal data of our customers on the basis of a valid Data Processing Agreement. In the case of joint processing, a joint processing contract is concluded.</p>
+
+    <p><strong>Withdrawal of Your Consent to Data Processing</strong></p>
+    <p>Many data processing operations are only possible with your explicit consent. You can revoke any consent already given at any time. The lawfulness of the data processing carried out until the revocation remains unaffected by the revocation.</p>
+
+    <p><strong>Right to Object to Data Collection in Special Cases and to Direct Marketing (Article 21 GDPR)</strong></p>
+    <p>WHEN DATA PROCESSING IS BASED ON ARTICLE 6(1)(E) OR (F) GDPR, YOU HAVE THE RIGHT, AT ANY TIME, FOR REASONS ARISING FROM YOUR PARTICULAR SITUATION, TO OBJECT TO THE PROCESSING OF YOUR PERSONAL DATA; THIS ALSO APPLIES TO PROFILING BASED ON THESE PROVISIONS. THE RESPECTIVE LEGAL BASIS ON WHICH PROCESSING IS BASED CAN BE FOUND IN THIS PRIVACY POLICY. IF YOU LODGE AN OBJECTION, WE WILL NO LONGER PROCESS YOUR AFFECTED PERSONAL DATA UNLESS WE CAN DEMONSTRATE COMPELLING LEGITIMATE GROUNDS FOR THE PROCESSING THAT OVERRIDE YOUR INTERESTS, RIGHTS, AND FREEDOMS OR THE PROCESSING SERVES THE ESTABLISHMENT, EXERCISE, OR DEFENSE OF LEGAL CLAIMS (OBJECTION PURSUANT TO ARTICLE 21(1) GDPR).</p>
+    <p>IF YOUR PERSONAL DATA IS PROCESSED FOR THE PURPOSE OF DIRECT MARKETING, YOU HAVE THE RIGHT TO OBJECT AT ANY TIME TO THE PROCESSING OF PERSONAL DATA CONCERNING YOU FOR THE PURPOSE OF SUCH MARKETING; THIS ALSO APPLIES TO PROFILING TO THE EXTENT IT IS RELATED TO SUCH DIRECT MARKETING. IF YOU OBJECT, YOUR PERSONAL DATA WILL THEREAFTER NO LONGER BE USED FOR DIRECT MARKETING PURPOSES (OBJECTION PURSUANT TO ARTICLE 21(2) GDPR).</p>
+
+    <p><strong>Right to Lodge a Complaint with the Competent Supervisory Authority</strong></p>
+    <p>In the event of breaches of the GDPR, data subjects have the right to lodge a complaint with a supervisory authority, in particular in the Member State of their habitual residence, place of work, or the place of the alleged infringement. This right to lodge a complaint exists without prejudice to other administrative or judicial remedies.</p>
+
+    <p><strong>Right to Data Portability</strong></p>
+    <p>You have the right to have data that we process automatically on the basis of your consent or in the performance of a contract delivered to you or a third party in a commonly used, machine-readable format. If you request the direct transfer of the data to another controller, this will only take place if it is technically feasible.</p>
+
+    <p><strong>Right to Information, Rectification, and Erasure</strong></p>
+    <p>Within the framework of the applicable legal provisions, you have the right at any time to obtain free information about your stored personal data, its origin and recipient, and the purpose of data processing, and, if applicable, a right to rectification or erasure of this data. For this, as well as for further questions on the subject of personal data, you can contact us at any time.</p>
+
+    <p><strong>Right to Restrict Processing</strong></p>
+    <p>You have the right to request the restriction of the processing of your personal data. You may contact us at any time regarding this. The right to restrict processing exists in the following cases:</p>
+    <ol>
+      <li>If you dispute the accuracy of your personal data stored with us, we generally need time to verify this. For the duration of this verification, you have the right to request the restriction of the processing of your personal data.</li>
+      <li>If the processing of your personal data was/is unlawful, you may request the restriction of data processing instead of erasure.</li>
+      <li>If we no longer need your personal data, but you need it for the establishment, exercise, or defense of legal claims, you have the right to request the restriction of the processing of your personal data instead of its erasure.</li>
+      <li>If you have lodged an objection pursuant to Article 21(1) GDPR, a balancing of your interests and ours must be carried out. As long as it has not yet been determined whose interests prevail, you have the right to request the restriction of the processing of your personal data.</li>
+    </ol>
+    <p>If you have restricted the processing of your personal data, such data—aside from being stored—may only be processed with your consent or for the establishment, exercise, or defense of legal claims, or for the protection of the rights of another natural or legal person, or for reasons of important public interest of the European Union or a Member State.</p>
+
+    <p><strong>SSL or TLS Encryption</strong></p>
+    <p>For security reasons and to protect the transmission of confidential content, such as orders or inquiries that you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address line of the browser changes from “http://” to “https://” and by the lock icon in your browser line.</p>
+    <p>If SSL or TLS encryption is enabled, the data you transmit to us cannot be read by third parties.</p>
+
+    <p><strong>Objection to Promotional Emails</strong></p>
+    <p>We hereby object to the use of contact data published within the scope of the imprint obligation for the purpose of sending unsolicited advertising and informational materials. The operators of these pages expressly reserve the right to take legal action in the event of the unsolicited sending of advertising information, for instance, through spam emails.</p>
+
+    <h2>4. Data Collection on This Website</h2>
+
+    <p><strong>Inquiry by Email, Telephone, or Fax</strong></p>
+    <p>If you contact us by email, telephone, or fax, your inquiry, including all resulting personal data (name, inquiry), will be stored and processed by us for the purpose of handling your request. We do not share this data without your consent.</p>
+    <p>The processing of this data is based on Article 6(1)(b) GDPR if your inquiry is related to the performance of a contract or is necessary for carrying out pre-contractual measures. In all other cases, processing is based on our legitimate interest in the effective handling of inquiries addressed to us (Article 6(1)(f) GDPR) or on your consent (Article 6(1)(a) GDPR) if this was requested; consent can be revoked at any time.</p>
+    <p>The data you send to us via contact inquiries will remain with us until you request erasure, revoke your consent to storage, or the purpose for storing the data no longer applies (e.g., once your request has been fully processed). Mandatory statutory provisions—in particular statutory retention periods—remain unaffected.</p>
+
+    <h2>Legal</h2>
+
+    <p><strong>Information according to § 5 TMG</strong></p>
+    <p>Contact:</p>
+    <p>Berlinickestr, 4<br>12165<br><a href="mailto:gaborgaya@gmail.com">gaborgaya@gmail.com</a></p>
+
+    <p><strong>Copyright</strong></p>
+    <p>All content published on this site is protected by copyright. The use, reproduction and distribution of the content requires express permission.</p>
+
+    <p><strong>EU dispute resolution</strong></p>
+    <p>The European Commission provides a platform for online dispute resolution (OS): <a href="https://ec.europa.eu/consumers/odr/">https://ec.europa.eu/consumers/odr/</a>. You can find our e-mail address in the legal notice above.</p>
+
+    <p><strong>Consumer dispute resolution/universal arbitration board</strong></p>
+    <p>We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+    <p style="margin-top:2.5rem">Source: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
   </main>
 </body>
 </html>
@@ -701,6 +778,7 @@ Run:
 ```bash
 cd /Users/gabor/lead-portfolio
 grep -c 'alt=' index.html          # expect >=1 (portrait has alt text)
+grep -c '<h1' index.html legal.html     # each page has exactly one h1 (heading order)
 grep -c '<main' index.html legal.html   # each page has a main landmark
 ```
 Then, in a browser, press **Tab** repeatedly through `index.html`: confirm every link shows a visible orange focus outline and the tab order is top-to-bottom. Confirm both pages show the favicon in the browser tab.
