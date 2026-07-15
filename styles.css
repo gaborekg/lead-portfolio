@@ -184,7 +184,7 @@ ul.plain li:last-child { margin-bottom: 0; }
   font-weight: var(--fw-semibold);
 }
 .more__toggle::-webkit-details-marker { display: none; }
-.more__chevron { display: inline-block; }
+.more__chevron { display: inline-block; line-height: 1; }
 .more[open] .more__chevron { transform: rotate(180deg); }
 
 .scope-item { margin: 0 0 1.25rem; }
