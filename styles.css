@@ -131,7 +131,7 @@ img { max-width: 100%; display: block; }
 .entry + .entry { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 4rem; }
 .entry__company { grid-column: 1; margin: 0; font-weight: var(--company-weight); font-size: var(--company-size); line-height: var(--company-line); color: var(--heading); }
 .entry__role { display: block; margin-top: 0.35rem; font-weight: var(--role-weight); font-size: var(--role-size); color: var(--accent); }
-.entry__dates { display: block; margin-top: 0.5rem; font-weight: var(--body-weight); font-size: var(--body-size); line-height: var(--body-line); color: var(--text); }
+.entry__dates { display: block; margin-top: 0.5rem; font-weight: var(--body-weight); font-size: var(--role-size); line-height: var(--body-line); color: var(--text); }
 .entry__content { grid-column: 2; }
 .entry__summary { margin: 0 0 2.5rem; font-weight: var(--summary-weight); font-size: var(--summary-size); line-height: var(--summary-line); color: var(--heading); }
 .entry__media { aspect-ratio: 16 / 9; width: 100%; margin: 0 0 2.5rem; background: var(--placeholder); border-radius: 2px; }
