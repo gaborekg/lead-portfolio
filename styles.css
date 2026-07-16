@@ -116,6 +116,11 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
   gap: 1.5rem;
   margin-bottom: 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--bg);
+  padding: 1rem 0;
 }
 .brand__name { display: block; font-weight: var(--brand-name-weight); font-size: var(--brand-name-size); line-height: var(--brand-name-line); letter-spacing: var(--brand-name-ls); color: var(--heading); }
 .brand__role { display: block; font-weight: var(--brand-role-weight); font-size: var(--brand-role-size); line-height: var(--brand-role-line); letter-spacing: var(--brand-role-ls); text-transform: uppercase; color: var(--accent); }
