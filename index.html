@@ -20,7 +20,16 @@
       <span class="site-nav__sep" aria-hidden="true">|</span>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="menu__open" href="#menu" aria-label="Open menu"><span class="menu__icon" aria-hidden="true"></span></a>
   </header>
+
+  <!-- Mobile menu overlay (pure CSS: opens via :target when #menu is in the URL,
+       closes when the target moves elsewhere — X → #_, or Contact → #contact) -->
+  <nav id="menu" class="menu__panel" aria-label="Mobile menu">
+    <a class="menu__close" href="#_" aria-label="Close menu"></a>
+    <a href="cv.pdf">CV</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main class="wrap">
     <section id="about">

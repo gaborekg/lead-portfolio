@@ -123,6 +123,11 @@ img { max-width: 100%; display: block; }
 .site-nav a { color: var(--heading); }
 .site-nav__sep { color: var(--accent); }
 
+/* Hamburger + overlay: desktop shows the inline nav above, so both are
+   hidden here. The mobile @media block at the end reveals them. */
+.menu__open { display: none; }
+.menu__panel { display: none; }
+
 /* ---- Experience & Impact section ------------------------------------ */
 #experience { margin-top: 5rem; }
 .section-title {
@@ -247,6 +252,44 @@ ul.plain li:last-child { margin-bottom: 0; }
   .entry__company { margin-bottom: 1.5rem; }
 
   .site-header { margin-bottom: 3rem; }
+
+  /* Header nav → hamburger. Hide the inline CV | Contact, show the icon. */
+  .site-nav { display: none; }
+  .menu__open {
+    display: block;
+    position: relative;
+    width: 1.75rem; height: 1.25rem;
+    flex: none;
+  }
+  /* Hamburger icon: three orange bars (middle bar + two pseudo-elements). */
+  .menu__icon, .menu__icon::before, .menu__icon::after {
+    content: ""; position: absolute; left: 0;
+    width: 100%; height: 2px; background: var(--accent);
+  }
+  .menu__icon { top: 50%; transform: translateY(-50%); }
+  .menu__icon::before { top: -7px; }
+  .menu__icon::after  { top: 7px; }
+
+  /* Full-screen overlay, revealed when the URL targets #menu. */
+  .menu__panel:target {
+    display: flex;
+    position: fixed; inset: 0; z-index: 100;
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 2.5rem;
+    background: var(--bg);
+  }
+  .menu__panel a { color: var(--heading); font-size: 1.25rem; }
+  /* Close button: an X drawn from two crossed bars, top-right. */
+  .menu__close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    width: 1.75rem; height: 1.75rem;
+  }
+  .menu__close::before, .menu__close::after {
+    content: ""; position: absolute; top: 50%; left: 0;
+    width: 100%; height: 2px; background: var(--heading);
+  }
+  .menu__close::before { transform: rotate(45deg); }
+  .menu__close::after  { transform: rotate(-45deg); }
 
   /* Footer: stack the © line and the links vertically. */
   .footer-bottom { flex-direction: column; }
