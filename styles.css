@@ -274,11 +274,14 @@ ul.plain li:last-child { margin-bottom: 0; }
   .menu__panel:target {
     display: flex;
     position: fixed; inset: 0; z-index: 100;
-    flex-direction: column; align-items: center; justify-content: center;
-    gap: 2.5rem;
+    flex-direction: column;
+    align-items: flex-end;         /* links to the right, under the X */
+    justify-content: flex-start;   /* grouped in the upper area */
+    gap: 2.75rem;
+    padding: 7rem 3.5rem 0;        /* top offset below the X + right inset */
     background: var(--bg);
   }
-  .menu__panel a { color: var(--heading); font-size: 1.25rem; }
+  .menu__panel a { color: var(--heading); font-size: 1.25rem; text-align: right; }
   /* Close button: an X drawn from two crossed bars, top-right. */
   .menu__close {
     position: absolute; top: 1.5rem; right: 1.5rem;
