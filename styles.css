@@ -27,6 +27,7 @@
   --muted: #8E94A2;          /* light grey — footer text */
   --rule: #D9DCE1;           /* thin divider line */
   --placeholder: #D2D5DB;    /* grey image placeholder */
+  --nav-h: 90px;             /* live height of the sticky nav (updated by JS) */
 
   --measure: 60rem;          /* max content width */
   --label-col: 7.5rem;       /* hero label column width on desktop */
@@ -58,9 +59,11 @@ body {
 /* Balance short/display lines so no single word is left stranded. */
 h1, h2, h3,
 .brand__name, .brand__role,
-.entry__summary, .block__label, .scope-item strong {
+.block__label, .scope-item strong {
   text-wrap: balance;
 }
+/* Summaries fill the full content width (out to the Contact/Legal line)
+   rather than balancing lines short. Inherits body's text-wrap: pretty. */
 /* Keep the date range on one line (no lone "Present"). */
 .entry__dates { white-space: nowrap; }
 a { color: var(--accent); text-decoration: none; }
@@ -95,11 +98,19 @@ img { max-width: 100%; display: block; }
   width: 69px; height: 69px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 2.5rem;
+  /* Lifted into the left gutter, top-aligned with the first hero row, so
+     it sits beside "Hey!" instead of stacking above it (removes the big
+     top gap). #about reserves room for it with padding-left below. */
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .portrait img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---- Hero ----------------------------------------------------------- */
+/* Reserve a left column for the portrait and anchor it (position: relative
+   makes the absolutely-positioned portrait above sit inside this box). */
+#about { position: relative; padding-left: calc(69px + 1.75rem); }
 /* The name is the page's <h1>; strip default heading styling so it looks
    identical to the body copy around it (same 16px, no bold). */
 #about h1 { font: inherit; margin: 0; }
@@ -115,13 +126,32 @@ img { max-width: 100%; display: block; }
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2.5rem;
   position: sticky;
   top: 0;
   z-index: 50;
   background: var(--bg);
   padding: 1rem 0;
 }
+/* Brand is a horizontal group: [dock slot] [name/role stack]. The slot
+   starts at 0 width and is grown by JS as the avatar docks, sliding the
+   text to the right to make room. */
+.brand { display: flex; align-items: center; }
+.dock-slot { flex: 0 0 auto; width: 0; height: 1px; }
+
+/* Floating avatar (a copy created by JS) that glides from the hero into
+   the nav. JS sets its top/left/width/height every scroll frame. */
+.portrait-float {
+  position: fixed;
+  top: 0; left: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 60;              /* above the sticky header (50), below menu (100) */
+  pointer-events: none;     /* never blocks clicks on the nav */
+  will-change: top, left, width, height;
+}
+.portrait-float img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
 .brand__name { display: block; font-weight: var(--brand-name-weight); font-size: var(--brand-name-size); line-height: var(--brand-name-line); letter-spacing: var(--brand-name-ls); color: var(--heading); }
 .brand__role { display: block; font-weight: var(--brand-role-weight); font-size: var(--brand-role-size); line-height: var(--brand-role-line); letter-spacing: var(--brand-role-ls); text-transform: uppercase; color: var(--accent); }
 .site-nav { display: flex; align-items: center; gap: 1rem; }
@@ -148,13 +178,36 @@ img { max-width: 100%; display: block; }
 /* Case-study card: company name (left) + content column (right) */
 .entry { display: grid; grid-template-columns: var(--entry-label) 1fr; gap: 0 3rem; }
 .entry + .entry { border-top: 1px solid var(--rule); margin-top: 4rem; padding-top: 4rem; }
-.entry__company { grid-column: 1; margin: 0; font-weight: var(--company-weight); font-size: var(--company-size); line-height: var(--company-line); color: var(--heading); }
+.entry__company {
+  grid-column: 1; margin: 0;
+  font-weight: var(--company-weight); font-size: var(--company-size);
+  line-height: var(--company-line); color: var(--heading);
+  /* Pin the company/role/dates just under the nav while its case study
+     scrolls past, then release at the entry's end (it slides up behind
+     the nav, which paints on top via its higher z-index). align-self:start
+     stops the grid from stretching it full-height, giving it room to stick. */
+  position: sticky;
+  top: calc(var(--nav-h) + 0.75rem);
+  align-self: start;
+  /* When pinned (JS adds .is-pinned), it shrinks a touch so it stays
+     readable without competing with the nav. Anchored top-left so it
+     doesn't drift as it scales. */
+  transform-origin: left top;
+  transition: transform 0.25s ease;
+}
+.entry__company.is-pinned { transform: scale(0.8); }
+@media (prefers-reduced-motion: reduce) {
+  .entry__company { transition: none; }
+}
 .entry__role { display: block; margin-top: 0.35rem; font-weight: var(--role-weight); font-size: var(--role-size); color: var(--accent); }
 .entry__dates { display: block; margin-top: 0.5rem; font-weight: var(--body-weight); font-size: var(--role-size); line-height: var(--body-line); color: var(--text); }
 .entry__content { grid-column: 2; }
-.entry__summary { margin: 0 0 2.5rem; font-weight: var(--summary-weight); font-size: var(--summary-size); line-height: var(--summary-line); color: var(--heading); }
-.entry__media { aspect-ratio: 719 / 376; width: 100%; margin: 0 0 2.5rem; background: var(--placeholder); border-radius: 2px; overflow: hidden; }
-.entry__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Matches the About body text: same size, weight, line-height and slate
+   colour (body defaults) rather than the larger navy summary style. */
+.entry__summary { margin: 0; font-weight: var(--body-weight); font-size: var(--body-size); line-height: var(--body-line); color: var(--text); }
+/* Logo icon + summary sit side by side at the top of each case study. */
+.entry__intro { display: flex; align-items: flex-start; gap: 1.5rem; margin: 0 0 1.5rem; }
+.entry__logo { flex: 0 0 auto; width: 55px; height: 55px; display: block; }
 
 .block { margin-bottom: 2rem; }
 .block:last-child { margin-bottom: 0; }
@@ -248,13 +301,16 @@ ul.plain li:last-child { margin-bottom: 0; }
   .row { grid-template-columns: 1fr; gap: 0.25rem 0; }
   .row__label { margin-bottom: 0.25rem; }
 
-  /* Portrait centred. */
-  .portrait { margin-left: auto; margin-right: auto; }
+  /* Portrait centred and back in the normal flow (undo the desktop
+     gutter layout so it stacks above the hero rows again). */
+  #about { padding-left: 0; }
+  .portrait { position: static; margin: 0 auto 1.5rem; }
 
   /* Experience entries: drop the two-column grid entirely so the
      company name, image, summary and toggle stack in document order. */
   .entry { display: block; }
-  .entry__company { margin-bottom: 1.5rem; }
+  /* Static (not sticky) here: stacked content would scroll under it. */
+  .entry__company { margin-bottom: 1.5rem; position: static; }
 
   .site-header { margin-bottom: 3rem; }
 

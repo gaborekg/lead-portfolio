@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Gábor Gayà — Product & Strategy Lead based in Berlin. Leadership experience across education, product, and creative ventures.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <title>Gábor Gayà — Product &amp; Strategy Lead</title>
-  <link rel="stylesheet" href="typography.css">
-  <link rel="stylesheet" href="styles.css">
+  <title>Gábor Gayà — Product &amp; Strategy</title>
+  <link rel="stylesheet" href="typography.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <header class="site-header wrap">
     <div class="brand">
-      <span class="brand__name">GÁBOR GAYÀ</span>
-      <span class="brand__role">PRODUCT &amp; STRATEGY LEAD</span>
+      <span class="dock-slot" aria-hidden="true"></span>
+      <div class="brand__text">
+        <span class="brand__name">GÁBOR GAYÀ</span>
+        <span class="brand__role">PRODUCT &amp; STRATEGY</span>
+      </div>
     </div>
     <nav class="site-nav" aria-label="Primary">
       <a href="cv.pdf">CV</a>
@@ -40,7 +43,7 @@
       <div class="row">
         <div class="row__label">Hey!</div>
         <div class="row__body">
-          <h1>I'm Gábor Gayà,<br>Product &amp; Strategy Lead.</h1>
+          <h1>I'm Gábor Gayà.</h1>
         </div>
       </div>
 
@@ -65,8 +68,10 @@
       <article class="entry">
         <h3 class="entry__company">Neue Fische<span class="entry__role">UX/UI Department Lead</span><span class="entry__dates">May 2025 – Present</span></h3>
         <div class="entry__content">
-          <div class="entry__media"><img src="assets/neuefische.png" alt="Neue Fische"></div>
+          <div class="entry__intro">
+            <img class="entry__logo" src="assets/icon-neuefische.png" alt="Neue Fische" width="88" height="88">
           <p class="entry__summary">Led the UX/UI department following the merger of Spiced Academy and Neue Fische, focusing on organizational stability, operational excellence, and AI-driven educational innovation.</p>
+          </div>
           <details class="more">
             <summary class="more__toggle">
               <span class="more__chevron" aria-hidden="true"></span>
@@ -102,8 +107,10 @@
       <article class="entry">
         <h3 class="entry__company">Spiced Academy<span class="entry__role">UX/UI Coach → Cohort Lead</span><span class="entry__dates">Sep 2023 – May 2025</span></h3>
         <div class="entry__content">
-          <div class="entry__media"><img src="assets/spiced.avif" alt="Spiced Academy"></div>
+          <div class="entry__intro">
+            <img class="entry__logo" src="assets/icon-spiced.png" alt="Spiced Academy" width="88" height="88">
           <p class="entry__summary">Combined teaching, mentoring, and operational leadership to deliver high-quality UX/UI education while creating new learning experiences and improving program scalability.</p>
+          </div>
           <details class="more">
             <summary class="more__toggle">
               <span class="more__chevron" aria-hidden="true"></span>
@@ -137,8 +144,10 @@
       <article class="entry">
         <h3 class="entry__company">BeatSquares<span class="entry__role">UX Lead (External Consultant)</span><span class="entry__dates">Sep 2024 – Feb 2025</span></h3>
         <div class="entry__content">
-          <div class="entry__media"><img src="assets/beatsquares.png" alt="BeatSquares"></div>
+          <div class="entry__intro">
+            <img class="entry__logo" src="assets/icon-beatsquares.png" alt="BeatSquares" width="88" height="88">
           <p class="entry__summary">Led UX for the initial product, translating the founder's vision into a validated solution by shaping product direction, defining user needs, and supporting early customer adoption.</p>
+          </div>
           <details class="more">
             <summary class="more__toggle">
               <span class="more__chevron" aria-hidden="true"></span>
@@ -171,8 +180,10 @@
       <article class="entry">
         <h3 class="entry__company">Selected Early Experiences<span class="entry__role">Product Designer and UX/UI Educator</span><span class="entry__dates">Dec 2022 – Aug 2023</span></h3>
         <div class="entry__content">
-          <div class="entry__media"><img src="assets/early.png" alt="Selected Early Experiences"></div>
+          <div class="entry__intro">
+            <img class="entry__logo" src="assets/icon-selected.png" alt="Selected Early Experiences" width="88" height="88">
           <p class="entry__summary">Supported early-stage startups, non-profits, and tech education initiatives through UX research, MVP development, product discovery, and stakeholder collaboration.</p>
+          </div>
           <details class="more">
             <summary class="more__toggle">
               <span class="more__chevron" aria-hidden="true"></span>
@@ -203,8 +214,10 @@
       <article class="entry">
         <h3 class="entry__company">Vermibus Studio<span class="entry__role">Artist and Founder</span><span class="entry__dates">Jan 2011 – Dec 2022</span></h3>
         <div class="entry__content">
-          <div class="entry__media"><img src="assets/vermibus.png" alt="Vermibus Studio"></div>
+          <div class="entry__intro">
+            <img class="entry__logo" src="assets/icon-vermibus.png" alt="Vermibus Studio" width="88" height="88">
           <p class="entry__summary">Built and managed an independent creative venture, leading large-scale projects from concept to execution while developing partnerships, managing stakeholders, and growing an internationally recognized brand.</p>
+          </div>
           <details class="more">
             <summary class="more__toggle">
               <span class="more__chevron" aria-hidden="true"></span>
@@ -254,5 +267,6 @@
       </nav>
     </div>
   </footer>
+  <script src="avatar-dock.js"></script>
 </body>
 </html>

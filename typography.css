@@ -19,14 +19,15 @@
 
   /* ---- Weights (full family loaded — every value is a real cut) ----
      100 thin · 300 light · 400 regular · 500 medium · 600 semibold · 700 bold */
+  --fw-thin:     100;
   --fw-light:    300;
   --fw-regular:  400;
   --fw-medium:   500;
   --fw-semibold: 600;
   --fw-bold:     700;
 
-  /* ---- Body & hero text (Regular 16px / 22.4px) ---- */
-  --body-weight: var(--fw-regular);
+  /* ---- Body & hero text (Light 16px / 22.4px) ---- */
+  --body-weight: var(--fw-light);
   --body-size:   1rem;      /* 16px */
   --body-line:   1.4;       /* 22.4px */
 
@@ -51,7 +52,7 @@
 
   /* ---- Section title "Experience & Impact" (Semi-bold 24px) ---- */
   --section-weight: var(--fw-semibold);
-  --section-size:   1.5rem;     /* 24px */
+  --section-size:   1.25rem;    /* 20px */
   --section-line:   normal;
 
   /* ---- Role company name (Semi-bold 16px / 22.4px) ---- */
