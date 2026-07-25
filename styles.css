@@ -525,6 +525,12 @@ html[data-theme="dark"] {
 #nf-stab[aria-expanded="true"] ~ .conn-nf-a { display: none; }
 #nf-stab[aria-expanded="true"] ~ .conn-nf-b { display: inline; }
 
+/* Spiced bullet 1: the "curriculum framework…" reveal ends on a full stop
+   ("…one-off lesson."). When that door is open, drop the trailing "to train
+   250+ students." tail so it doesn't dangle; closed, the tail shows normally
+   (and carries the sentence's final period). */
+#sp-fw[aria-expanded="true"] ~ .conn-sp-a { display: none; }
+
 /* ---- Mobile: single column ------------------------------------------
    Everything stacks in one full-width column (like the old site's
    phone layout): each label sits above its content, and every
