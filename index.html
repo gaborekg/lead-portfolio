@@ -3,11 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Gábor Gayà — Product & Strategy Lead based in Berlin. Leadership experience across education, product, and creative ventures.">
+  <meta name="description" content="Gábor Gayà — Product & People Lead based in Berlin. Leadership experience across education, product, and creative ventures.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <title>Gábor Gayà — Product &amp; Strategy</title>
-  <link rel="stylesheet" href="typography.css?v=3">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <title>Gábor Gayà — Product &amp; People</title>
+  <link rel="stylesheet" href="typography.css?v=27">
+  <link rel="stylesheet" href="styles.css?v=38">
+  <!-- Theme follows the device's own light/dark setting. Set before the
+       page paints (no flash) and kept in sync if the setting changes. -->
+  <script>
+    (function () {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      function apply() {
+        document.documentElement.dataset.theme = mq.matches ? "dark" : "light";
+      }
+      apply();
+      mq.addEventListener("change", apply);
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header wrap">
@@ -15,7 +27,7 @@
       <span class="dock-slot" aria-hidden="true"></span>
       <div class="brand__text">
         <span class="brand__name">GÁBOR GAYÀ</span>
-        <span class="brand__role">PRODUCT &amp; STRATEGY</span>
+        <span class="brand__role">PRODUCT &amp; PEOPLE</span>
       </div>
     </div>
     <nav class="site-nav" aria-label="Primary">
@@ -40,24 +52,15 @@
         <img src="assets/portrait.jpg" alt="Portrait of Gábor Gayà">
       </div>
 
-      <div class="row">
-        <div class="row__label">Hey!</div>
-        <div class="row__body">
-          <h1>I'm Gábor Gayà.</h1>
-        </div>
-      </div>
+      <!-- The visible intro is the interactive sentence below; this hidden
+           <h1> keeps a real page heading for SEO and screen readers. -->
+      <h1 class="visually-hidden">Gábor Gayà — Product &amp; People</h1>
 
       <div class="row">
-        <div class="row__label">About</div>
+        <div class="row__label">Hey there!</div>
         <div class="row__body">
-          <p>Product &amp; Strategy Leader with experience building products, teams, and operational frameworks across startups and educational organizations.</p>
-          <p>Proven ability to lead through ambiguity, drive organizational transformation, develop talent, and translate strategic vision into scalable solutions.</p>
+          <p class="grow-sentence">My name is <button class="trigger" aria-expanded="false">Gábor Gayà</button><span class="reveal">, I live in <button class="trigger" aria-expanded="false">Berlin, Germany</button><span class="reveal"> where I lead the UX/UI Department at Neue Fische</span></span>. I help build <button id="teamsdoor" class="trigger" aria-expanded="false">teams</button><span class="reveal"> that keep running smoothly when I leave the room, who work with a common goal in mind. My way of doing this is with them aside: understanding what drives them, and finding common ground with the company's needs — a basic UX approach that's often missing when building teams, right? I also enjoy building</span><span class="conn-teams-a"> and </span><span class="conn-teams-b"> </span><button class="trigger" aria-expanded="false">products</button><span class="reveal">, which vary from MVPs and PoCs</span> for <button id="startups" class="trigger" aria-expanded="false">startups</button><span class="reveal">, like <a class="link-ref" href="#exp-beatsquares">BeatSquares</a>, where I was involved in the product foundation. My work as UX Lead had a tangible impact on the acquisition of NOZ and Süddeutsche Zeitung as the company's first clients (<a class="link-ref" href="https://www.thesaasnews.com/news/beatsquares-raises-2m-seed/" target="_blank" rel="noopener">they just got a 2 million seed</a>)</span><span class="conn-scale-a">, and </span><span class="conn-scale-b">. I also create new revenue sources for </span><button id="scaleups" class="trigger" aria-expanded="false">scale-ups</button><span class="reveal"> — for example, at <a class="link-ref" href="#exp-neuefische">Neue Fische</a>, where I currently work, I'm leading the development of a new educational product that opens a new revenue source adjusted to today's needs and students. It's called <a class="link-ref" href="https://www.neuefische.de/en/preview?type=bootcamp&amp;id=5wVOq2cGertanG904XwfLM" target="_blank" rel="noopener">AI Design OS: AI Workflows for UX/UI Designers Bootcamp</a>, and it's pretty cool</span><span class="conn-a">, or</span><span class="conn-b">. I also do</span> fun projects for <button class="trigger" aria-expanded="false">myself</button><span class="reveal"> — today I'm building a fitness app for intermediate lifters who want to get raw data of their gym sessions, instead of motivational quotes</span>.</p>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="row__label">Now</div>
-        <div class="row__body"><p>UX/UI Department Lead at Neue Fische · Berlin, Germany</p></div>
       </div>
     </section>
 
@@ -65,11 +68,11 @@
       <h2 class="section-title">Experience &amp; Impact</h2>
 
       <!-- Entry 1 -->
-      <article class="entry">
+      <article class="entry" id="exp-neuefische">
         <h3 class="entry__company">Neue Fische<span class="entry__role">UX/UI Department Lead</span><span class="entry__dates">May 2025 – Present</span></h3>
         <div class="entry__content">
           <div class="entry__intro">
-            <img class="entry__logo" src="assets/icon-neuefische.png" alt="Neue Fische" width="88" height="88">
+            <a class="entry__logo-link" href="https://www.neuefische.de/en" target="_blank" rel="noopener"><img class="entry__logo" src="assets/icon-neuefische.png" alt="Neue Fische" width="88" height="88"></a>
           <p class="entry__summary">Led the UX/UI department following the merger of Spiced Academy and Neue Fische, focusing on organizational stability, operational excellence, and AI-driven educational innovation.</p>
           </div>
           <details class="more">
@@ -108,7 +111,7 @@
         <h3 class="entry__company">Spiced Academy<span class="entry__role">UX/UI Coach → Cohort Lead</span><span class="entry__dates">Sep 2023 – May 2025</span></h3>
         <div class="entry__content">
           <div class="entry__intro">
-            <img class="entry__logo" src="assets/icon-spiced.png" alt="Spiced Academy" width="88" height="88">
+            <a class="entry__logo-link" href="https://www.spiced-academy.com/en" target="_blank" rel="noopener"><img class="entry__logo" src="assets/icon-spiced.png" alt="Spiced Academy" width="88" height="88"></a>
           <p class="entry__summary">Combined teaching, mentoring, and operational leadership to deliver high-quality UX/UI education while creating new learning experiences and improving program scalability.</p>
           </div>
           <details class="more">
@@ -118,7 +121,7 @@
             </summary>
           <div class="block">
             <p class="block__label">Company</p>
-            <div class="block__body"><p>Spiced Academy is a brand from Neuefische. We train, upskill and reskill new tech talents every day, helping professionals translate their previous experiences and strengths to practice-oriented, in-demand digital skills.</p></div>
+            <div class="block__body"><p>Spiced Academy is a brand from Neue Fische. We train, upskill and reskill new tech talents every day, helping professionals translate their previous experiences and strengths into practice-oriented, in-demand digital skills.</p></div>
           </div>
           <div class="block">
             <p class="block__label">Key Outcomes</p>
@@ -130,10 +133,10 @@
           <div class="block">
             <p class="block__label">Leadership Scope</p>
             <div class="block__body">
-              <p class="scope-item"><strong>Student Experience &amp; Cohort Leadership</strong><br>Own cohort delivery, mentoring, facilitation, conflict resolution, and student success throughout the learning journey.</p>
-              <p class="scope-item"><strong>Operations &amp; Quality Management</strong><br>Manage daily cohort operations, student communication, evaluations, documentation, and continuous program improvements.</p>
-              <p class="scope-item"><strong>Curriculum &amp; Learning Development</strong><br>Drive curriculum iterations, LMS improvements, and educational content development to improve program quality and scalability.</p>
-              <p class="scope-item"><strong>Team Collaboration &amp; Development</strong><br>Support onboarding and coordination of teaching assistants and junior staff while reviewing feedback quality and teaching consistency across instructors.</p>
+              <p class="scope-item"><strong>Student Experience &amp; Cohort Leadership</strong><br>Owned cohort delivery, mentoring, facilitation, conflict resolution, and student success throughout the learning journey.</p>
+              <p class="scope-item"><strong>Operations &amp; Quality Management</strong><br>Managed daily cohort operations, student communication, evaluations, documentation, and continuous program improvements.</p>
+              <p class="scope-item"><strong>Curriculum &amp; Learning Development</strong><br>Drove curriculum iterations, LMS improvements, and educational content development to improve program quality and scalability.</p>
+              <p class="scope-item"><strong>Team Collaboration &amp; Development</strong><br>Supported onboarding and coordination of teaching assistants and junior staff while reviewing feedback quality and teaching consistency across instructors.</p>
             </div>
           </div>
           </details>
@@ -141,11 +144,11 @@
       </article>
 
       <!-- Entry 3 -->
-      <article class="entry">
+      <article class="entry" id="exp-beatsquares">
         <h3 class="entry__company">BeatSquares<span class="entry__role">UX Lead (External Consultant)</span><span class="entry__dates">Sep 2024 – Feb 2025</span></h3>
         <div class="entry__content">
           <div class="entry__intro">
-            <img class="entry__logo" src="assets/icon-beatsquares.png" alt="BeatSquares" width="88" height="88">
+            <a class="entry__logo-link" href="https://www.beatsquares.com/" target="_blank" rel="noopener"><img class="entry__logo" src="assets/icon-beatsquares.png" alt="BeatSquares" width="88" height="88"></a>
           <p class="entry__summary">Led UX for the initial product, translating the founder's vision into a validated solution by shaping product direction, defining user needs, and supporting early customer adoption.</p>
           </div>
           <details class="more">
@@ -193,9 +196,9 @@
             <p class="block__label">Companies</p>
             <div class="block__body">
               <ul class="plain">
-                <li><strong>Tekkr</strong> — a B2B SaaS startup providing playbooks and resources for leaders in VC-backed technology companies.</li>
-                <li><strong>Ironhack</strong> — an intensive tech bootcamp providing hands-on B2C courses in high-demand tech skills.</li>
-                <li><strong>Junges Netzwerk</strong> — a non-profit organization fostering cultural connections between Germany and South America.</li>
+                <li><strong><a href="https://www.tekkr.io/" target="_blank" rel="noopener">Tekkr</a></strong> — a B2B SaaS startup providing playbooks and resources for leaders in VC-backed technology companies.</li>
+                <li><strong><a href="https://www.ironhack.com/de-en" target="_blank" rel="noopener">Ironhack</a></strong> — an intensive tech bootcamp providing hands-on B2C courses in high-demand tech skills.</li>
+                <li><strong><a href="https://www.jungesnetzwerk.de/" target="_blank" rel="noopener">Junges Netzwerk</a></strong> — a non-profit organization fostering cultural connections between Germany and South America.</li>
               </ul>
             </div>
           </div>
@@ -215,7 +218,7 @@
         <h3 class="entry__company">Vermibus Studio<span class="entry__role">Artist and Founder</span><span class="entry__dates">Jan 2011 – Dec 2022</span></h3>
         <div class="entry__content">
           <div class="entry__intro">
-            <img class="entry__logo" src="assets/icon-vermibus.png" alt="Vermibus Studio" width="88" height="88">
+            <a class="entry__logo-link" href="https://web.archive.org/web/20220214191840/https://vermibus.com/" target="_blank" rel="noopener"><img class="entry__logo" src="assets/icon-vermibus.png" alt="Vermibus Studio" width="88" height="88"></a>
           <p class="entry__summary">Built and managed an independent creative venture, leading large-scale projects from concept to execution while developing partnerships, managing stakeholders, and growing an internationally recognized brand.</p>
           </div>
           <details class="more">
@@ -225,7 +228,7 @@
             </summary>
           <div class="block">
             <p class="block__label">Company</p>
-            <div class="block__body"><p>Vermibus Studio is an independent creative practice founded and led by artist Vermibus, focused on large-scale public interventions and cultural projects across Europe.</p></div>
+            <div class="block__body"><p>Vermibus Studio is an independent creative practice founded and led by artist <a href="https://www.google.com/search?q=vermibus" target="_blank" rel="noopener">Vermibus</a>, focused on large-scale public interventions and cultural projects across Europe.</p></div>
           </div>
           <div class="block">
             <p class="block__label">Key Outcomes</p>
@@ -262,11 +265,43 @@
       <span>© All rights reserved 2026</span>
       <nav class="footer-links" aria-label="Footer">
         <a href="cv.pdf">Download CV</a>
-        <a href="https://www.linkedin.com/in/gabor-gaya/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+        <a href="https://www.linkedin.com/in/gabor-gaya/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="legal.html">Legal</a>
       </nav>
     </div>
   </footer>
   <script src="avatar-dock.js"></script>
+  <script>
+    // About — the "growing sentence". Each orange-underlined <button> reveals
+    // the hidden <span> immediately after it. A few (the audience words) also
+    // open one shared span via data-also. Reveals can hold more buttons, so
+    // the sentence keeps growing the deeper you click.
+    document.querySelectorAll(".grow-sentence .trigger").forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        if (trigger.getAttribute("aria-expanded") === "true") return;   // already open
+        var target = trigger.dataset.target;
+        var reveal = target ? document.getElementById(target) : trigger.nextElementSibling;
+        if (reveal) reveal.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+        var also = trigger.dataset.also;
+        if (also) { var shared = document.getElementById(also); if (shared) shared.classList.add("open"); }
+        // If the new text opens below the fold, bring it into view gently.
+        if (reveal) reveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+
+    // In-sentence company links (#exp-…) jump to the Experience entry AND
+    // pop its "Read the summary" chevron open, so the reader lands on the
+    // full story, not a collapsed teaser. The <details> is native, so opening
+    // it is just details.open = true.
+    document.querySelectorAll('.grow-sentence a[href^="#exp-"]').forEach(function (link) {
+      link.addEventListener("click", function () {
+        var article = document.getElementById(link.getAttribute("href").slice(1));
+        if (!article) return;
+        var details = article.querySelector("details.more");
+        if (details) details.open = true;
+      });
+    });
+  </script>
 </body>
 </html>

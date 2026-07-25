@@ -26,7 +26,7 @@
   --fw-semibold: 600;
   --fw-bold:     700;
 
-  /* ---- Body & hero text (Light 16px / 22.4px) ---- */
+  /* ---- Body & hero text (Light 300, both light and dark modes) ---- */
   --body-weight: var(--fw-light);
   --body-size:   1rem;      /* 16px */
   --body-line:   1.4;       /* 22.4px */

@@ -1,2 +1,5 @@
 # Local Netlify folder
 .netlify
+
+# Archived older versions (kept locally, not published)
+archive/
