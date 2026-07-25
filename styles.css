@@ -245,6 +245,9 @@ img { max-width: 100%; display: block; }
    text to the right to make room. */
 .brand { display: flex; align-items: center; }
 .dock-slot { flex: 0 0 auto; width: 0; height: 1px; }
+/* The name/role is a link back to the top (home). Keep it looking like
+   plain text — no underline, inherit colour (the spans set their own). */
+.brand__text { display: block; text-decoration: none; color: inherit; }
 
 /* Floating avatar (a copy created by JS) that glides from the hero into
    the nav. JS sets its top/left/width/height every scroll frame. */
