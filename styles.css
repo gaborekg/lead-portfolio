@@ -454,9 +454,10 @@ html[data-theme="dark"] {
    text (orange → slate, no underline), and the eye moves to the words that
    can still open. */
 .grow-sentence .trigger[aria-expanded="true"] {
-  color: inherit;
+  color: inherit;                 /* body grey — drop the orange it had when closed */
   text-decoration: none;
   cursor: default;
+  font-weight: var(--fw-medium);  /* opened door: IBM Plex Mono Medium, grey anchor */
 }
 
 /* The hidden continuation: fades in AND gets a brief highlighter sweep that
