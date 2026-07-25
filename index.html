@@ -309,6 +309,19 @@
         if (details) details.open = true;
       });
     });
+
+    // Logo → glide back to the top of this one-page site instead of
+    // reloading. preventDefault stops the href="./" navigation; we scroll
+    // smoothly (instantly for reduced-motion users). The real link stays as
+    // a no-JS fallback.
+    var brandLink = document.querySelector(".brand__text");
+    if (brandLink) {
+      brandLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      });
+    }
   </script>
 </body>
 </html>
