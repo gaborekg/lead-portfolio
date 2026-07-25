@@ -248,6 +248,9 @@ img { max-width: 100%; display: block; }
 /* The name/role is a link back to the top (home). Keep it looking like
    plain text — no underline, inherit colour (the spans set their own). */
 .brand__text { display: block; text-decoration: none; color: inherit; }
+/* The logo obviously goes home — no hover underline needed (overrides the
+   global a:hover underline, which stays useful on the other links). */
+.brand__text:hover { text-decoration: none; }
 
 /* Floating avatar (a copy created by JS) that glides from the hero into
    the nav. JS sets its top/left/width/height every scroll frame. */
