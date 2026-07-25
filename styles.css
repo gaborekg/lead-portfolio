@@ -57,9 +57,71 @@ html[data-theme="dark"] {
   --placeholder: #1B2731;
 }
 
-/* Theme is chosen purely by the device's light/dark setting (the inline
-   script in index.html's <head> mirrors `prefers-color-scheme` onto
-   <html data-theme>). No manual toggle, no moon, no stored choice. */
+/* Theme defaults to the device's light/dark setting, but clicking the
+   portrait (the "moon", theme-toggle.js) overrides it and the choice is
+   remembered. The moon visuals below drive that switch. */
+
+/* ---- Theme cross-fade ----------------------------------------------
+   .theme-anim is added to <html> only for the moment of switching, so
+   the colour change glides instead of snapping. It's removed right
+   after, so it never interferes with normal hover/scroll transitions. */
+html.theme-anim,
+html.theme-anim * {
+  transition: background-color 0.55s ease, color 0.55s ease,
+              border-color 0.55s ease, box-shadow 0.55s ease !important;
+}
+
+/* ---- Portrait → moon ------------------------------------------------
+   A disc the colour of the dark background rides over the round portrait
+   at 70% opacity — so the shadowed part of the face stays visible (a
+   face in shadow, not a solid circle). It moves strictly LEFT → RIGHT:
+   sweeps in from the left as night falls, then keeps going and exits to
+   the RIGHT when day returns (that exit is coordinated in theme-toggle.js).
+   In light mode, hovering peeks the moon in ~20% as a hint; a tap sweeps
+   it in and switches to dark. In dark mode it rests at 80% covered. */
+.portrait, .portrait-float { cursor: pointer; }
+.portrait::after, .portrait-float::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #070F13;                /* the dark-theme teal, never white —
+                                        reads as shadow in light mode, blends
+                                        into the background in dark mode */
+  opacity: 0.7;
+  transform: translateX(-110%);       /* day: parked off the left */
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+/* Hover, light mode only: hint the moon peeking in from the left. */
+html:not([data-theme="dark"]) .portrait:hover::after,
+html:not([data-theme="dark"]) .portrait-float:hover::after {
+  transform: translateX(-80%);        /* ~20% coverage on the left edge */
+}
+/* Night: at rest the moon covers 80% of the photo. */
+html[data-theme="dark"] .portrait::after,
+html[data-theme="dark"] .portrait-float::after {
+  transform: translateX(-20%);
+}
+/* Night + hover: the moon eases back a touch to 75%. */
+html[data-theme="dark"] .portrait:hover::after,
+html[data-theme="dark"] .portrait-float:hover::after {
+  transform: translateX(-25%);
+}
+/* Day returning: push the moon OFF THE RIGHT (keeps the same direction). */
+html.moon-exit .portrait::after,
+html.moon-exit .portrait-float::after {
+  transform: translateX(110%) !important;
+}
+/* The instant, unseen re-park to the left after it exits right. */
+html.moon-reset .portrait::after,
+html.moon-reset .portrait-float::after {
+  transition: none !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.theme-anim, html.theme-anim * { transition: none !important; }
+  .portrait::after, .portrait-float::after { transition: none; }
+}
 
 /* ---- Text selection -------------------------------------------------
    Orange highlight instead of the browser's default blue. Near-black
@@ -462,6 +524,12 @@ html[data-theme="dark"] {
      gutter layout so it stacks above the hero rows again). */
   #about { padding-left: 0; }
   .portrait { position: static; margin: 0 auto 1.5rem; }
+
+  /* Moon: hide the crescent sweep on phones and switch instantly — the
+     colour cross-fade repainting every glyph looked glitchy on mobile.
+     Tapping the portrait still flips the theme (theme-toggle.js). */
+  .portrait::after, .portrait-float::after { display: none; }
+  html.theme-anim, html.theme-anim * { transition: none !important; }
 
   /* Experience entries: drop the two-column grid entirely so the
      company name, image, summary and toggle stack in document order. */

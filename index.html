@@ -7,17 +7,22 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>Gábor Gayà — Product &amp; People</title>
   <link rel="stylesheet" href="typography.css?v=27">
-  <link rel="stylesheet" href="styles.css?v=38">
-  <!-- Theme follows the device's own light/dark setting. Set before the
-       page paints (no flash) and kept in sync if the setting changes. -->
+  <link rel="stylesheet" href="styles.css?v=39">
+  <!-- Theme: a saved manual choice (from clicking the portrait / "moon")
+       always wins; otherwise follow the device's own light/dark setting.
+       Runs before the page paints, so the theme never flashes on load. -->
   <script>
     (function () {
+      var root = document.documentElement;
       var mq = window.matchMedia("(prefers-color-scheme: dark)");
-      function apply() {
-        document.documentElement.dataset.theme = mq.matches ? "dark" : "light";
-      }
-      apply();
-      mq.addEventListener("change", apply);
+      function deviceTheme() { return mq.matches ? "dark" : "light"; }
+      function saved() { try { return localStorage.getItem("theme"); } catch (e) { return null; } }
+      root.dataset.theme = saved() || deviceTheme();
+      // Keep following the device — but only while the visitor hasn't
+      // made a manual choice (theme-toggle.js writes that choice).
+      mq.addEventListener("change", function () {
+        if (!saved()) root.dataset.theme = deviceTheme();
+      });
     })();
   </script>
 </head>
@@ -48,7 +53,8 @@
 
   <main class="wrap">
     <section id="about">
-      <div class="portrait">
+      <div class="portrait" role="button" tabindex="0"
+           aria-label="Switch between light and dark mode">
         <img src="assets/portrait.jpg" alt="Portrait of Gábor Gayà">
       </div>
 
@@ -271,6 +277,7 @@
     </div>
   </footer>
   <script src="avatar-dock.js"></script>
+  <script src="theme-toggle.js"></script>
   <script>
     // About — the "growing sentence". Each orange-underlined <button> reveals
     // the hidden <span> immediately after it. A few (the audience words) also
