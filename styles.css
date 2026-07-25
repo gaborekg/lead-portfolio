@@ -517,6 +517,14 @@ html[data-theme="dark"] {
 .grow-sentence:has(#startups[aria-expanded="true"], #scaleups[aria-expanded="true"]) .conn-scale-a { display: none; }
 .grow-sentence:has(#startups[aria-expanded="true"], #scaleups[aria-expanded="true"]) .conn-scale-b { display: inline; }
 
+/* Neue Fische sentence 1: the "stabilizing operations" reveal ends on a full
+   stop ("Built to last."). When that door is open, the list comma before
+   "improving team performance" swaps to a clean sentence restart; closed, the
+   plain list comma stays so the collapsed sentence reads as a normal list. */
+.grow-sentence .conn-nf-b { display: none; }
+#nf-stab[aria-expanded="true"] ~ .conn-nf-a { display: none; }
+#nf-stab[aria-expanded="true"] ~ .conn-nf-b { display: inline; }
+
 /* ---- Mobile: single column ------------------------------------------
    Everything stacks in one full-width column (like the old site's
    phone layout): each label sits above its content, and every
