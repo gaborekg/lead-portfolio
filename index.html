@@ -7,7 +7,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>Gábor Gayà, Product &amp; People</title>
   <link rel="stylesheet" href="typography.css?v=27">
-  <link rel="stylesheet" href="styles.css?v=46">
+  <link rel="stylesheet" href="styles.css?v=47">
   <!-- Theme: a saved manual choice (from clicking the portrait / "moon")
        always wins; otherwise follow the device's own light/dark setting.
        Runs before the page paints, so the theme never flashes on load. -->
@@ -280,20 +280,21 @@
   <script src="theme-toggle.js"></script>
   <script>
     // About: the "growing sentence". Each orange-underlined <button> reveals
-    // the hidden <span> immediately after it. A few (the audience words) also
-    // open one shared span via data-also. Reveals can hold more buttons, so
-    // the sentence keeps growing the deeper you click.
+    // the hidden <span> immediately after it, and clicking again collapses it.
+    // Reveals can hold more buttons, so the sentence keeps growing the deeper
+    // you click. Connector-swaps and the opened-door style key off
+    // aria-expanded, so collapsing restores the closed sentence automatically.
     document.querySelectorAll(".grow-sentence .trigger").forEach(function (trigger) {
       trigger.addEventListener("click", function () {
-        if (trigger.getAttribute("aria-expanded") === "true") return;   // already open
         var target = trigger.dataset.target;
         var reveal = target ? document.getElementById(target) : trigger.nextElementSibling;
-        if (reveal) reveal.classList.add("open");
-        trigger.setAttribute("aria-expanded", "true");
+        var opening = trigger.getAttribute("aria-expanded") !== "true";
+        trigger.setAttribute("aria-expanded", opening ? "true" : "false");
+        if (reveal) reveal.classList.toggle("open", opening);
         var also = trigger.dataset.also;
-        if (also) { var shared = document.getElementById(also); if (shared) shared.classList.add("open"); }
-        // If the new text opens below the fold, bring it into view gently.
-        if (reveal) reveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        if (also) { var shared = document.getElementById(also); if (shared) shared.classList.toggle("open", opening); }
+        // Only bring new text into view when opening, never when collapsing.
+        if (opening && reveal) reveal.scrollIntoView({ behavior: "smooth", block: "nearest" });
       });
     });
 
